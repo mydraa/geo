@@ -1,0 +1,23 @@
+{
+  "name": "geomaster-geoguessr-pro",
+  "version": "1.0.0",
+  "description": "GeoMaster — Plateforme d'Intelligence GeoGuessr & Atlas Visuel Compétitif Bilingue",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "build": "node test_engine.js",
+    "test": "node test_engine.js"
+  },
+  "keywords": [
+    "geoguessr",
+    "streetview",
+    "esports",
+    "meta",
+    "bollards",
+    "license-plates",
+    "geography",
+    "bilingual"
+  ],
+  "author": "mydraa",
+  "license": "MIT"
+}

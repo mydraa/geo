@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GeoMaster — Playbook Ultime GeoGuessr & Moteur d'Indices Pro</title>
+  <meta name="description" content="Guide compétitif ultime GeoGuessr : 122 pays décryptés, bollards, poteaux, méta car, plaques, autoroutes et stratégies professionnelles. Sans blabla, 100% facts.">
+  
+  <!-- Modern Typography: Plus Jakarta Sans, Outfit & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌍</text></svg>">
+</head>
+<body>
+
+  <!-- Ambient Background Lighting Mesh -->
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- Top Navigation & Header Bar -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand-group">
+        <div class="brand-icon-wrapper">
+          <span class="brand-icon">🧭</span>
+        </div>
+        <div class="brand-text">
+          <div class="brand-heading">
+            <span class="brand-title" data-i18n="brandTitle">GEOMASTER</span>
+            <span class="brand-badge" data-i18n="brandBadge">MOTEUR PRO DE CONNAISSANCES</span>
+          </div>
+          <p class="brand-sub" data-i18n="brandSubtitle">Moteur d'Intelligence GeoGuessr Pro • 122 Pays</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <!-- Language Switcher Pill -->
+        <div class="lang-switcher" id="lang-switcher" role="radiogroup" aria-label="Language selection">
+          <button class="lang-btn active" data-lang="fr" aria-checked="true" role="radio">
+            <span class="flag-icon">🇫🇷</span>
+            <span>FR</span>
+          </button>
+          <button class="lang-btn" data-lang="en" aria-checked="false" role="radio">
+            <span class="flag-icon">🇬🇧</span>
+            <span>EN</span>
+          </button>
+        </div>
+
+        <!-- Theme Toggle Button -->
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme" title="Toggle dark/light mode">
+          <span id="theme-icon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Bar Tabs -->
+  <nav class="nav-bar-container" aria-label="Main Navigation">
+    <div class="nav-tabs" id="nav-tabs">
+      <button class="nav-tab active" data-tab="tab-countries">
+        <span class="tab-icon">🌍</span>
+        <span class="tab-text" data-i18n="tabCountries">🌍 Pays (122)</span>
+      </button>
+      <button class="nav-tab" data-tab="tab-matrix">
+        <span class="tab-icon">⚡</span>
+        <span class="tab-text" data-i18n="tabMatrix">⚡ Matrice d'Indices</span>
+      </button>
+      <button class="nav-tab" data-tab="tab-bollards">
+        <span class="tab-icon">🛑</span>
+        <span class="tab-text" data-i18n="tabBollards">🛑 Bollards & Panneaux</span>
+      </button>
+      <button class="nav-tab" data-tab="tab-meta">
+        <span class="tab-icon">🚗</span>
+        <span class="tab-text" data-i18n="tabMeta">🚗 Caméras & Méta Car</span>
+      </button>
+      <button class="nav-tab" data-tab="tab-plates">
+        <span class="tab-icon">🚙</span>
+        <span class="tab-text" data-i18n="tabPlates">🚙 Plaques d'Immat</span>
+      </button>
+      <button class="nav-tab" data-tab="tab-highways">
+        <span class="tab-icon">🛣️</span>
+        <span class="tab-text" data-i18n="tabHighways">🛣️ Réseaux Routiers</span>
+      </button>
+      <button class="nav-tab" data-tab="tab-languages">
+        <span class="tab-icon">🔤</span>
+        <span class="tab-text" data-i18n="tabLanguages">🔤 Langues & Écritures</span>
+      </button>
+      <button class="nav-tab" data-tab="tab-modes">
+        <span class="tab-icon">🎮</span>
+        <span class="tab-text" data-i18n="tabModes">🎮 Modes & Stratégies</span>
+      </button>
+      <button class="nav-tab" data-tab="tab-fundamentals">
+        <span class="tab-icon">☀️</span>
+        <span class="tab-text" data-i18n="tabFundamentals">☀️ Soleil & Boussole</span>
+      </button>
+      <button class="nav-tab" data-tab="tab-quiz">
+        <span class="tab-icon">🎯</span>
+        <span class="tab-text" data-i18n="tabQuiz">🎯 Quiz d'Entraînement</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Viewport Content -->
+  <main class="main-content">
+
+    <!-- TAB 1: COUNTRIES EXPLORER -->
+    <section id="tab-countries" class="tab-panel active">
+      <div class="hero-card">
+        <div class="hero-info">
+          <div class="hero-chip">
+            <span class="pulse-dot"></span>
+            <span data-i18n="brandBadge">MOTEUR PRO DE CONNAISSANCES</span>
+          </div>
+          <h1 class="hero-title" data-i18n="heroTitle">🌍 Guide Magistral des Pays & Territoires</h1>
+          <p class="hero-desc" data-i18n="heroSubtitle">Chaque nation Street View décortiquée avec une précision chirurgicale. Identification immédiate par bollards, poteaux électriques, plaques, méta de la voiture et repères régionaux — zéro blabla.</p>
+        </div>
+        <div class="hero-metrics">
+          <div class="metric-card">
+            <span class="metric-val" id="metric-countries">122</span>
+            <span class="metric-lbl" data-i18n="statCountries">Pays Couverts</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val highlight-emerald">100%</span>
+            <span class="metric-lbl" data-i18n="statAccuracy">Faits Intacts</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val highlight-cyan">1,820+</span>
+            <span class="metric-lbl" data-i18n="statClues">Preuves Visuelles</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filters & Live Search Toolbar -->
+      <div class="toolbar-panel">
+        <div class="search-box">
+          <span class="search-magnifier">🔍</span>
+          <input type="text" id="country-search" class="search-field" placeholder="Rechercher un pays, bollard, poteau, méta car, mot-clé (ex: 'snorkel', 'bouleau', 'gruyère')..." data-i18n-ph="searchPlaceholder" autocomplete="off">
+          <span class="search-key-hint">/</span>
+        </div>
+
+        <div class="filter-controls">
+          <div class="continent-filters" id="continent-filters">
+            <button class="filter-pill active" data-continent="all">Tous (122)</button>
+            <button class="filter-pill" data-continent="Europe">Europe (49)</button>
+            <button class="filter-pill" data-continent="Asia">Asie (30)</button>
+            <button class="filter-pill" data-continent="Africa">Afrique (15)</button>
+            <button class="filter-pill" data-continent="South America">Amér. Sud (11)</button>
+            <button class="filter-pill" data-continent="North America">Amér. Nord (10)</button>
+            <button class="filter-pill" data-continent="Oceania">Océanie (7)</button>
+          </div>
+
+          <div class="driving-filter-wrapper">
+            <select id="driving-side-select" class="custom-select">
+              <option value="all" data-i18n="filterDrivingAll">Conduite : Tous</option>
+              <option value="Left" data-i18n="filterDrivingLeft">🚗 Conduite à gauche (RHD)</option>
+              <option value="Right" data-i18n="filterDrivingRight">🚙 Conduite à droite (LHD)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Country Cards Grid -->
+      <div id="countries-grid" class="countries-layout">
+        <!-- Injected dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- TAB 2: INTERACTIVE CLUE MATRIX -->
+    <section id="tab-matrix" class="tab-panel">
+      <div class="hero-card">
+        <div class="hero-info">
+          <div class="hero-chip">
+            <span class="pulse-dot"></span>
+            <span data-i18n="tabMatrix">⚡ Matrice d'Indices</span>
+          </div>
+          <h1 class="hero-title" data-i18n="matrixTitle">⚡ Matrice d'Indices & Guesser Intelligent</h1>
+          <p class="hero-desc" data-i18n="matrixSubtitle">En pleine partie ? Cochez les éléments visibles sur votre écran pour filtrer instantanément les pays candidats.</p>
+        </div>
+      </div>
+
+      <div class="matrix-workbench">
+        <!-- Matrix Options Sidebar -->
+        <aside class="matrix-sidebar">
+          <div class="matrix-group">
+            <span class="matrix-group-label" data-i18n="matrixDrivingTitle">1. Sens de Conduite</span>
+            <div class="matrix-options" id="matrix-driving">
+              <button class="matrix-btn selected" data-val="any" data-i18n="anyVal">Tous</button>
+              <button class="matrix-btn" data-val="Left" data-i18n="matrixDrivingLeft">🚗 Gauche (RHD)</button>
+              <button class="matrix-btn" data-val="Right" data-i18n="matrixDrivingRight">🚙 Droite (LHD)</button>
+            </div>
+          </div>
+
+          <div class="matrix-group">
+            <span class="matrix-group-label" data-i18n="matrixPlateTitle">2. Style de Plaque</span>
+            <div class="matrix-options" id="matrix-plate">
+              <button class="matrix-btn selected" data-val="any" data-i18n="anyVal">Tous</button>
+              <button class="matrix-btn" data-val="yellow_both" data-i18n="matrixPlateYellowBoth">🟨 Jaune Avant & Arrière</button>
+              <button class="matrix-btn" data-val="yellow_rear" data-i18n="matrixPlateYellowRear">⬜ Blanc Avant / 🟨 Jaune Arrière</button>
+              <button class="matrix-btn" data-val="double_blue" data-i18n="matrixPlateDoubleBlue">🟦 Double Bandeau Bleu</button>
+              <button class="matrix-btn" data-val="short_front" data-i18n="matrixPlateShortFront">Plaque Avant Courte</button>
+              <button class="matrix-btn" data-val="red_plate" data-i18n="matrixPlateRed">🟥 Caractères Rouges</button>
+            </div>
+          </div>
+
+          <div class="matrix-group">
+            <span class="matrix-group-label" data-i18n="matrixCarTitle">3. Méta de la Google Car</span>
+            <div class="matrix-options" id="matrix-car">
+              <button class="matrix-btn selected" data-val="any" data-i18n="anyVal">Tous</button>
+              <button class="matrix-btn" data-val="snorkel" data-i18n="matrixCarSnorkel">Snorkel (Kenya)</button>
+              <button class="matrix-btn" data-val="tape" data-i18n="matrixCarTape">Adhésif Noir (Ghana)</button>
+              <button class="matrix-btn" data-val="mirrors" data-i18n="matrixCarMirrors">Rétroviseurs (Guatemala)</button>
+              <button class="matrix-btn" data-val="camping" data-i18n="matrixCarCamping">Bagages Benne (Mongolie)</button>
+              <button class="matrix-btn" data-val="rifts" data-i18n="matrixCarRifts">Déchirures Ciel (Sénégal)</button>
+              <button class="matrix-btn" data-val="escort" data-i18n="matrixCarEscort">Escorte Police (Nigeria)</button>
+              <button class="matrix-btn" data-val="bars" data-i18n="matrixCarBars">Arceaux Pick-up (Curaçao)</button>
+              <button class="matrix-btn" data-val="buggy" data-i18n="matrixCarBuggy">Buggy Décapotable (Bermudes)</button>
+            </div>
+          </div>
+
+          <div class="matrix-group">
+            <span class="matrix-group-label" data-i18n="matrixPoleTitle">4. Poteaux Électriques</span>
+            <div class="matrix-options" id="matrix-pole">
+              <button class="matrix-btn selected" data-val="any" data-i18n="anyVal">Tous</button>
+              <button class="matrix-btn" data-val="holes" data-i18n="matrixPoleHoles">🧀 Poteaux Gruyère (Pologne/Fr)</button>
+              <button class="matrix-btn" data-val="ladder" data-i18n="matrixPoleLadder">Échelons Métalliques</button>
+              <button class="matrix-btn" data-val="painted" data-i18n="matrixPolePainted">Base Peinte en Blanc</button>
+              <button class="matrix-btn" data-val="stripes" data-i18n="matrixPoleStripes">Rayures Jaune/Noir (Taïwan)</button>
+            </div>
+          </div>
+
+          <div class="matrix-group">
+            <span class="matrix-group-label" data-i18n="matrixBollardTitle">5. Délinéateur (Bollard)</span>
+            <div class="matrix-options" id="matrix-bollard">
+              <button class="matrix-btn selected" data-val="any" data-i18n="anyVal">Tous</button>
+              <button class="matrix-btn" data-val="cylinder" data-i18n="matrixBollardCylinder">Cylindrique Rond (France)</button>
+              <button class="matrix-btn" data-val="slanted_red" data-i18n="matrixBollardSlantedRed">Bande Rouge Oblique (Pologne)</button>
+              <button class="matrix-btn" data-val="black_cap" data-i18n="matrixBollardBlackCap">Sommet Noir (All / Aut / Ita)</button>
+              <button class="matrix-btn" data-val="yellow_post" data-i18n="matrixBollardYellowPost">Jaune Vif Fluo (Islande)</button>
+            </div>
+          </div>
+
+          <button id="matrix-reset-action" class="reset-action-btn" data-i18n="matrixResetBtn">↺ Réinitialiser les Indices</button>
+        </aside>
+
+        <!-- Matched Results Stage -->
+        <div class="matrix-stage">
+          <div class="matrix-stage-header">
+            <span class="stage-title" data-i18n="matrixCandidates">Candidats Possibles</span>
+            <span id="matrix-candidate-count" class="candidate-badge">122 Pays</span>
+          </div>
+          <div id="matrix-results-grid" class="countries-layout">
+            <!-- Filtered matrix cards render here -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: BOLLARDS & SIGNS -->
+    <section id="tab-bollards" class="tab-panel">
+      <div class="hero-card">
+        <div class="hero-info">
+          <div class="hero-chip">
+            <span class="pulse-dot"></span>
+            <span data-i18n="tabBollards">🛑 Bollards & Panneaux</span>
+          </div>
+          <h1 class="hero-title" data-i18n="bollardsHeroTitle">🛑 Guide Visuel des Bollards & Panneaux Routiers</h1>
+          <p class="hero-desc" data-i18n="bollardsHeroDesc">Les délinéateurs et poteaux de balisage constituent les indices les plus rapides et fiables pour localiser instantanément un pays sans se déplacer.</p>
+        </div>
+      </div>
+      <div class="reference-grid" id="bollards-container">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+
+    <!-- TAB 4: CAR META & CAMERA GENS -->
+    <section id="tab-meta" class="tab-panel">
+      <div class="hero-card">
+        <div class="hero-info">
+          <div class="hero-chip">
+            <span class="pulse-dot"></span>
+            <span data-i18n="tabMeta">🚗 Caméras & Méta Car</span>
+          </div>
+          <h1 class="hero-title" data-i18n="metaHeroTitle">🚗 Générations de Caméras & Méta Google Car</h1>
+          <p class="hero-desc" data-i18n="metaHeroDesc">De la pixellisation Gen 1 aux snorkels du Kenya, ruban adhésif du Ghana et escortes de police du Nigeria — la méta exacte qui garantit le 5 000 points.</p>
+        </div>
+      </div>
+      <div class="reference-grid" id="meta-container">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+
+    <!-- TAB 5: LICENSE PLATES -->
+    <section id="tab-plates" class="tab-panel">
+      <div class="hero-card">
+        <div class="hero-info">
+          <div class="hero-chip">
+            <span class="pulse-dot"></span>
+            <span data-i18n="tabPlates">🚙 Plaques d'Immat</span>
+          </div>
+          <h1 class="hero-title" data-i18n="platesHeroTitle">🚙 Plaques d'Immatriculation & Législation Mondiale</h1>
+          <p class="hero-desc" data-i18n="platesHeroDesc">Bandes bleues européennes, plaques 100% jaunes, formats Mercosur et les 19 États américains sans plaque avant pour réussir les State Streaks.</p>
+        </div>
+      </div>
+      <div class="reference-grid" id="plates-container">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+
+    <!-- TAB 6: HIGHWAY NUMBERING GRIDS -->
+    <section id="tab-highways" class="tab-panel">
+      <div class="hero-card">
+        <div class="hero-info">
+          <div class="hero-chip">
+            <span class="pulse-dot"></span>
+            <span data-i18n="tabHighways">🛣️ Réseaux Routiers</span>
+          </div>
+          <h1 class="hero-title" data-i18n="highwaysHeroTitle">🛣️ Logique Mathématique des Réseaux Routiers</h1>
+          <p class="hero-desc" data-i18n="highwaysHeroDesc">Interstates américaines paires/impaires, réseau BR brésilien radial/longitudinal, corridors européens E-Roads et zones radiales britanniques.</p>
+        </div>
+      </div>
+      <div class="reference-grid" id="highways-container">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+
+    <!-- TAB 7: LANGUAGES & SCRIPTS -->
+    <section id="tab-languages" class="tab-panel">
+      <div class="hero-card">
+        <div class="hero-info">
+          <div class="hero-chip">
+            <span class="pulse-dot"></span>
+            <span data-i18n="tabLanguages">🔤 Langues & Écritures</span>
+          </div>
+          <h1 class="hero-title" data-i18n="languagesHeroTitle">🔤 Comparateur Cyrillique, Nordique & Écritures d'Asie</h1>
+          <p class="hero-desc" data-i18n="languagesHeroDesc">Distinguez les nuances cyrilliques (Ukraine vs Russie vs Bulgarie vs Serbie), voyelles nordiques (æ/ø vs ä/ö) et calligraphies d'Asie en un coup d'œil.</p>
+        </div>
+      </div>
+      <div class="reference-grid" id="languages-container">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+
+    <!-- TAB 8: GAME MODES & TACTICS -->
+    <section id="tab-modes" class="tab-panel">
+      <div class="hero-card">
+        <div class="hero-info">
+          <div class="hero-chip">
+            <span class="pulse-dot"></span>
+            <span data-i18n="tabModes">🎮 Modes & Stratégies</span>
+          </div>
+          <h1 class="hero-title" data-i18n="modesHeroTitle">🎮 Guide Tactique des Modes de Jeu & Compétition</h1>
+          <p class="hero-desc" data-i18n="modesHeroDesc">Stratégies concrètes pour maximiser votre classement en Duels (6 000 PV), Battle Royale Pays/Distance, Mode Explorateur et Maprunner.</p>
+        </div>
+      </div>
+      <div class="reference-grid" id="modes-container">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+
+    <!-- TAB 9: FUNDAMENTALS & SUN -->
+    <section id="tab-fundamentals" class="tab-panel">
+      <div class="hero-card">
+        <div class="hero-info">
+          <div class="hero-chip">
+            <span class="pulse-dot"></span>
+            <span data-i18n="tabFundamentals">☀️ Soleil & Boussole</span>
+          </div>
+          <h1 class="hero-title" data-i18n="fundamentalsHeroTitle">☀️ Fondamentaux : Soleil, Ombres & Paraboles</h1>
+          <p class="hero-desc" data-i18n="fundamentalsHeroDesc">Détermination infaillible de l'hémisphère par la course du soleil, projection des ombres, inclinaison des paraboles et orientation de la boussole.</p>
+        </div>
+      </div>
+      <div class="reference-grid" id="fundamentals-container">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+
+    <!-- TAB 10: PRACTICE QUIZ ARENA -->
+    <section id="tab-quiz" class="tab-panel">
+      <div class="hero-card">
+        <div class="hero-info">
+          <div class="hero-chip">
+            <span class="pulse-dot"></span>
+            <span data-i18n="tabQuiz">🎯 Quiz d'Entraînement</span>
+          </div>
+          <h1 class="hero-title" data-i18n="quizTitle">🎯 Quiz d'Entraînement Compétitif</h1>
+          <p class="hero-desc" data-i18n="quizSubtitle">Entraînez vos réflexes d'identification immédiate sur la méta car, les bollards, les générations de caméras, les autoroutes et les plaques.</p>
+        </div>
+      </div>
+
+      <div class="quiz-arena">
+        <div class="quiz-card-box">
+          <div class="quiz-header-bar">
+            <span class="quiz-step" id="quiz-step">Question 1 sur 15</span>
+            <div class="quiz-stats-group">
+              <span class="streak-chip" id="quiz-streak">🔥 Série : 0</span>
+              <span class="score-chip" id="quiz-score">Score : 0 / 0 (0%)</span>
+            </div>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="quiz-meter">
+            <div class="quiz-meter-fill" id="quiz-meter-fill" style="width: 6.66%;"></div>
+          </div>
+
+          <!-- Question Content -->
+          <div class="quiz-query" id="quiz-query-text">
+            <!-- Question text injected here -->
+          </div>
+
+          <!-- Options Buttons -->
+          <div class="quiz-choices" id="quiz-choices-box">
+            <!-- Option buttons rendered here -->
+          </div>
+
+          <!-- Tactical Explanation Card -->
+          <div class="quiz-verdict-box" id="quiz-verdict-box" style="display: none;">
+            <div class="verdict-headline" id="quiz-verdict-title"></div>
+            <div class="verdict-body" id="quiz-verdict-text"></div>
+          </div>
+
+          <button id="quiz-next-action" class="quiz-forward-btn" style="display: none;" data-i18n="quizNextBtn">Question Suivante ➔</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Deep Intelligence Dossier Modal -->
+  <div class="dossier-modal" id="dossier-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="dossier-dialog">
+      <header class="dossier-header">
+        <div class="dossier-country-lead">
+          <span class="dossier-flag-badge" id="modal-flag">🏳️</span>
+          <div>
+            <h2 class="dossier-country-name" id="modal-title" data-i18n="modalDefaultTitle">Nom du Pays</h2>
+            <div class="dossier-tags-strip" id="modal-tags">
+              <!-- Badges injected dynamically -->
+            </div>
+          </div>
+        </div>
+        <button class="dossier-dismiss-btn" id="modal-close-btn" aria-label="Close modal">✕</button>
+      </header>
+
+      <div class="dossier-content" id="modal-body-content">
+        <!-- Rendered paragraphs and photo gallery -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Zoom Lightbox Modal -->
+  <div class="lightbox-modal" id="lightbox-modal" aria-hidden="true">
+    <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="Zoomed clue">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+      <button class="lightbox-close-btn" id="lightbox-close-btn">✕</button>
+    </div>
+  </div>
+
+  <!-- Load Data Engine and Application Logic -->
+  <script src="data.js" charset="utf-8"></script>
+  <script src="app.js" charset="utf-8"></script>
+</body>
+</html>
