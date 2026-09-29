@@ -487,6 +487,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (car === 'escort' && c.id !== 'nigeria') return false;
         if (car === 'bars' && c.id !== 'curacao') return false;
         if (car === 'buggy' && c.id !== 'bermuda') return false;
+        if (car === 'kazakh_truck' && c.id !== 'kazakhstan') return false;
+        if (car === 'panama_bars' && c.id !== 'panama') return false;
+        if (car === 'black_ghost' && !['argentina', 'uruguay'].includes(c.id)) return false;
+        if (car === 'chile_rear' && c.id !== 'chile') return false;
+        if (car === 'namibia_antenna' && c.id !== 'namibia') return false;
+        if (car === 'low_cam' && !['japan', 'switzerland'].includes(c.id)) return false;
       }
 
       // 4. Utility pole

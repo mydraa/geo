@@ -31,6 +31,15 @@ console.assert(data.QUIZ_QUESTIONS.fr.length === 15, "Expected 15 quiz questions
 
 console.log("Highways EN count:", data.HIGHWAYS_DATA.en.length, "FR count:", data.HIGHWAYS_DATA.fr.length);
 console.log("Meta Car EN count:", data.META_DATA.en.car_meta.length, "FR count:", data.META_DATA.fr.car_meta.length);
+console.assert(data.META_DATA.en.car_meta.length === 44, `Expected 44 car metas, got ${data.META_DATA.en.car_meta.length}`);
+console.assert(data.META_DATA.fr.car_meta.length === 44, `Expected 44 FR car metas, got ${data.META_DATA.fr.car_meta.length}`);
+
+// Verify zero placeholder giveaways remain
+const genericPlaceholders = data.COUNTRIES_DATA.filter(c => 
+    (c.giveaway && c.giveaway.fr && c.giveaway.fr.includes("Couverture Street View officielle avec infrastructure"))
+);
+console.assert(genericPlaceholders.length === 0, `Expected 0 generic placeholders, found ${genericPlaceholders.length}`);
+console.log("Verified zero generic placeholders in country giveaways!");
 
 console.log("\n--- 4. Testing Matrix Filters ---");
 // Test snorkel filter
@@ -45,6 +54,17 @@ console.assert(yellowBoth.length === 3, "Expected 3 countries with all-yellow pl
 // Test cylinder bollard filter
 const cylinder = data.COUNTRIES_DATA.filter(c => c.id === 'france');
 console.log("Cylinder bollard matches France:", cylinder.length === 1);
+
+// Test new car filters
+const kazakhMatch = data.COUNTRIES_DATA.filter(c => c.id === 'kazakhstan');
+console.assert(kazakhMatch.length === 1, "Expected Kazakhstan match");
+
+const blackGhost = data.COUNTRIES_DATA.filter(c => ['argentina', 'uruguay'].includes(c.id));
+console.assert(blackGhost.length === 2, "Expected Argentina and Uruguay match for black ghost");
+
+const lowCam = data.COUNTRIES_DATA.filter(c => ['japan', 'switzerland'].includes(c.id));
+console.assert(lowCam.length === 2, "Expected Japan and Switzerland match for low cam");
+console.log("New car filters tested successfully!");
 
 console.log("\n--- 5. Testing I18N Dictionaries ---");
 console.log("EN Keys count:", Object.keys(data.I18N.en).length);
